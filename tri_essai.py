@@ -6,16 +6,16 @@ def tri_bulle(tab):
     for i in range(n):
         for j in range(0, n - i - 1):
             # échanger si l'élément trouvé est plus grand que le suivant
-            if tab[j] > tab[j + 1]:
+            if str(tab[j]).upper() > str(tab[j + 1]).upper():
                 tab[j], tab[j + 1] = tab[j + 1], tab[j]
 
 #
 
 # Programme principale pour tester le code ci-dessus
-tab = [98, 22, 15, 32, 2, 74, 63, 70]
+tab = ["toto", "titi", "TOTO", "tata", "toto.fr.net.intra", "tutu", "TOTO.FR.NET.INTRA", "TITI", 2, 3]
 
 tri_bulle(tab)
 
 print("Le tableau trié est:")
 for i in range(len(tab)):
-    print("%d" % tab[i])
+    print(tab[i])
