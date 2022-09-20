@@ -1,5 +1,5 @@
 import sys
-import simple_sqlite
+import sqlite3
 import magic
 import os
 
@@ -18,8 +18,12 @@ def scan_file(racine):
     return liste_db
 
 def list_schemas(db):
-    base_lu = simple_sqlite.SimpleSqlite(db)
-    print(base_lu.schema)
+    base_lu = sqlite3.connect(db)
+    cur = base_lu.cursor()
+    cur.execute('select sql from sqlite_master')
+    for i in cur.fetchall():
+        print(i[0])
+    cur.close()
 
 # init vars
 racine = ""
@@ -31,7 +35,6 @@ color_select = colored(255, 238, 50, " ")
 
 # recup params
 while i < len(sys.argv):
-    print('i:', i)
     if i == 1:
         racine = sys.argv[i]
     else:
