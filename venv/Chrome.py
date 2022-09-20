@@ -9,6 +9,7 @@ from datetime import datetime, timedelta
 import win32crypt # pip install pypiwin32
 from Crypto.Cipher import AES # pip install pycryptodome
 
+
 def get_chrome_datetime(chromedate):
     """Return a `datetime.datetime` object from a chrome format datetime
     Since `chromedate` is formatted as the number of microseconds since January, 1601"""
